@@ -8,10 +8,10 @@ import pandas as pd
 from datetime import datetime
 import socket
 
-if "disabled" not in st.session_state:
-    st.session_state["disabled"] = False
-def disable():
-    st.session_state["disabled"] = True
+#if "disabled" not in st.session_state:
+#    st.session_state["disabled"] = False
+#def disable():
+#    st.session_state["disabled"] = True
     
 #### Demo: https://chatbot-test-jiani.streamlit.app/
 
@@ -101,7 +101,7 @@ for message in st.session_state.messages:
 
 if user_id:
     # Accept user input
-    if prompt := st.chat_input(placeholder="ask Optima", disabled=st.session_state.disabled, on_submit=disable):
+    if prompt := st.chat_input(placeholder="ask Optima"):  # , disabled=st.session_state.disabled, on_submit=disable
         input_time = str(datetime.now())
         # Add user message to chat history
         st.session_state.messages.append({"role": "user", "content": prompt})
